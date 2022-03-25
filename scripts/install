@@ -157,9 +157,10 @@ ynh_package_install qgis-server
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
-#chmod 750 "$final_path"
-#chmod -R o-rwx "$final_path"
-#chown -R $app:www-data "$final_path"
+mkdir "$final_path"
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
