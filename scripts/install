@@ -121,7 +121,7 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 #=================================================
 # CREATE A MYSQL DATABASE
 #=================================================
-ynh_script_progression --message="Creating a MySQL database..." --time --weight=1
+#ynh_script_progression --message="Creating a MySQL database..." --time --weight=1
 
 ### Use these lines if you need a database for the application.
 ### `ynh_mysql_setup_db` will create a database, an associated user and a ramdom password.
@@ -132,10 +132,10 @@ ynh_script_progression --message="Creating a MySQL database..." --time --weight=
 ###		- Remove also the section "REMOVE THE MYSQL DATABASE" in the remove script
 ###		- As well as the section "RESTORE THE MYSQL DATABASE" in the restore script
 
-db_name=$(ynh_sanitize_dbid --db_name=$app)
-db_user=$db_name
-ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
+#db_name=$(ynh_sanitize_dbid --db_name=$app)
+#db_user=$db_name
+#ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+#ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -146,7 +146,7 @@ ynh_script_progression --message="Setting up source files..." --time --weight=1
 ### downloaded from an upstream source, like a git repository.
 ### `ynh_setup_source` use the file conf/app.src
 
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+#ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 # ynh_setup_source --dest_dir="$final_path"
 ynh_package_install qgis-server
@@ -157,9 +157,9 @@ ynh_package_install qgis-server
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+#chmod 750 "$final_path"
+#chmod -R o-rwx "$final_path"
+#chown -R $app:www-data "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
