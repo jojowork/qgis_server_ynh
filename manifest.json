@@ -3,7 +3,7 @@
     "id": "qgis-server",
     "packaging_format": 1,
     "description": {
-        "en": "with QGIS Server you can host maps",
+        "en": "with QGIS Server you can host maps"
     },
     "version": "1.0~ynh1",
     "url": "https://docs.qgis.org/2.14/de/docs/user_manual/working_with_ogc/ogc_server_support.html",
